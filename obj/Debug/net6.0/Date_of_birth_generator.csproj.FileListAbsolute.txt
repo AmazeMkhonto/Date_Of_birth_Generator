@@ -1,0 +1,15 @@
+/home/amaze/Downloads/Date_of_birth_generator/bin/Debug/net6.0/Date_of_birth_generator
+/home/amaze/Downloads/Date_of_birth_generator/bin/Debug/net6.0/Date_of_birth_generator.deps.json
+/home/amaze/Downloads/Date_of_birth_generator/bin/Debug/net6.0/Date_of_birth_generator.runtimeconfig.json
+/home/amaze/Downloads/Date_of_birth_generator/bin/Debug/net6.0/Date_of_birth_generator.dll
+/home/amaze/Downloads/Date_of_birth_generator/bin/Debug/net6.0/ref/Date_of_birth_generator.dll
+/home/amaze/Downloads/Date_of_birth_generator/bin/Debug/net6.0/Date_of_birth_generator.pdb
+/home/amaze/Downloads/Date_of_birth_generator/obj/Debug/net6.0/Date_of_birth_generator.csproj.AssemblyReference.cache
+/home/amaze/Downloads/Date_of_birth_generator/obj/Debug/net6.0/Date_of_birth_generator.GeneratedMSBuildEditorConfig.editorconfig
+/home/amaze/Downloads/Date_of_birth_generator/obj/Debug/net6.0/Date_of_birth_generator.AssemblyInfoInputs.cache
+/home/amaze/Downloads/Date_of_birth_generator/obj/Debug/net6.0/Date_of_birth_generator.AssemblyInfo.cs
+/home/amaze/Downloads/Date_of_birth_generator/obj/Debug/net6.0/Date_of_birth_generator.csproj.CoreCompileInputs.cache
+/home/amaze/Downloads/Date_of_birth_generator/obj/Debug/net6.0/Date_of_birth_generator.dll
+/home/amaze/Downloads/Date_of_birth_generator/obj/Debug/net6.0/ref/Date_of_birth_generator.dll
+/home/amaze/Downloads/Date_of_birth_generator/obj/Debug/net6.0/Date_of_birth_generator.pdb
+/home/amaze/Downloads/Date_of_birth_generator/obj/Debug/net6.0/Date_of_birth_generator.genruntimeconfig.cache
