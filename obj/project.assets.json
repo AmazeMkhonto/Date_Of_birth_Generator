@@ -1,36 +1,36 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net7.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net7.0": []
   },
   "packageFolders": {
-    "/home/amaze/.nuget/packages/": {}
+    "C:\\Users\\bbdnet2872\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/amaze/Downloads/Date_of_birth_generator/Date_of_birth_generator.csproj",
+      "projectUniqueName": "C:\\Users\\bbdnet2872\\Music\\Date_of_birth_generator\\Date_of_birth_generator.csproj",
       "projectName": "Date_of_birth_generator",
-      "projectPath": "/home/amaze/Downloads/Date_of_birth_generator/Date_of_birth_generator.csproj",
-      "packagesPath": "/home/amaze/.nuget/packages/",
-      "outputPath": "/home/amaze/Downloads/Date_of_birth_generator/obj/",
+      "projectPath": "C:\\Users\\bbdnet2872\\Music\\Date_of_birth_generator\\Date_of_birth_generator.csproj",
+      "packagesPath": "C:\\Users\\bbdnet2872\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bbdnet2872\\Music\\Date_of_birth_generator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/amaze/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\bbdnet2872\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net6.0"
+        "net7.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "projectReferences": {}
         }
       },
@@ -41,15 +41,16 @@
       }
     },
     "frameworks": {
-      "net6.0": {
-        "targetAlias": "net6.0",
+      "net7.0": {
+        "targetAlias": "net7.0",
         "imports": [
           "net461",
           "net462",
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -58,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.113/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
