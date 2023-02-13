@@ -8,20 +8,15 @@ namespace IDNumbers
     class Program
     {
 
-
         static void Main(string[] args) {
-            // if (args.Length == 0){
-            //     Console.WriteLine("Please provide a path to the text file.");
-            //     return;
-            // }
 
-            // string filePath = args[0];
+            FileWriter count = new FileWriter();
+            
+            string filePath = @"idNumbers.txt";
 
             int bornBefore2010 = 0;
             int bornAfter2010 = 0;
 
-
-            string filePath = @"idNumbers.txt";
             List<DateTime> datesOfBirth = BirthDate(filePath);
 
             foreach (DateTime dateOfBirth in datesOfBirth) {
@@ -33,9 +28,10 @@ namespace IDNumbers
                     bornAfter2010++;
                 }
             }
-             ageCount(bornBefore2010, bornAfter2010);
+            count.ageCount(bornBefore2010, bornAfter2010);
             
         }
+
 
 
         static DateTime BirthDateFormat(string idNumber)
@@ -92,14 +88,30 @@ namespace IDNumbers
 
 
 
-         static void ageCount(int before2010, int after2010)
-         {
-            string filePath = "ageCount.txt";
-                string[] lines = { $"People born before 2010: {before2010}",
-                                   $"People born after 2010: {after2010}"};
-                File.WriteAllLines(filePath, lines);
-        }
+
 
         
     }
+
+
+    class FileReader{
+
+    }
+
+
+    class FileWriter{
+
+        public void ageCount(int before2010, int after2010)
+         {
+            string filePath = "ageCount.txt";
+                string[] text = { $"People born before 2010: {before2010}",
+                                   $"People born after 2010: {after2010}"};
+                File.WriteAllLines(filePath, text);
+        }
+
+
+    }
+
+
+
 }
