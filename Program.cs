@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace IDNumbers
 {
@@ -39,7 +40,6 @@ namespace IDNumbers
 
 
 
-
     class FileReader{
 
         public DateTime BirthDateFormat(string idNumber)
@@ -65,7 +65,7 @@ namespace IDNumbers
         }
 
 
-        //TODO: CHECK that the first 6 are in the correct format
+       
 
         private bool IsRestOfIdValid(string idNumber){
 
@@ -114,6 +114,11 @@ namespace IDNumbers
 
             // Console.WriteLine("The actual last number: "+Z);
             // Console.WriteLine("Expected last number: "+controlDigitExpected);
+
+            if (!DateTime.TryParseExact(idNumber.Substring(0, 6), "yyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out _)){
+
+                return false;
+             }
 
             if(!re.IsMatch(C)){
                 return false;
