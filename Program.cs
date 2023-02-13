@@ -81,35 +81,30 @@ namespace IDNumbers
     
             string C = idNumber.Substring(10, 1);
             string A = idNumber.Substring(11, 1);
-            int Z = int.Parse(idNumber.Substring(12, 1)); //controlDigit
 
+            
 
+            int controlDigit = int.Parse(idNumber.Substring(12, 1));
             int oddsSum = 0;
             int evensDoubledSum = 0;
-            int position = 0;
-            
-            foreach (char digitChar in idNumber){
 
-                int digit = int.Parse(digitChar.ToString());
+            for (int i = 0; i < 12; i++)
+            {
+                var digit = int.Parse(idNumber.Substring(i, 1));
 
-                if (position % 2 == 0) {
-                    oddsSum += digit;
-                } else {
-                    evensDoubledSum += digit * 2;
-                    if (digit >= 5)
-                    {
-                        evensDoubledSum -= 9;
-                    }
-                }
-                
-                position++;
-                if (position == 12)
+                if (i % 2 == 0)
                 {
-                    break;
+                    oddsSum += digit;
                 }
-                 }
-                int totalSum = oddsSum + evensDoubledSum;
-                int controlDigitExpected = (10 - (totalSum % 10)) % 10;
+                else
+                {
+                    evensDoubledSum += 2 * digit;
+                    evensDoubledSum -= digit >= 5 ? 9 : 0;
+                }
+            }
+
+            int controlDigitExpected = (10 - (oddsSum + evensDoubledSum) % 10) % 10;
+
    
 
             // Console.WriteLine("The actual last number: "+Z);
@@ -128,7 +123,7 @@ namespace IDNumbers
                 return false;
             }
 
-            if(Z!=controlDigitExpected){
+            if(controlDigit!=controlDigitExpected){
                 return false;
             }
                             
