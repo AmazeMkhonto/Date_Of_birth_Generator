@@ -41,6 +41,7 @@ namespace IDNumbers
 
 
     class FileReader{
+
         public DateTime BirthDateFormat(string idNumber)
         {
             int year = int.Parse(idNumber.Substring(0, 2));
@@ -52,21 +53,40 @@ namespace IDNumbers
             } else {
                 year += 1900;
             }
-            if (month < 1 || month > 12 || day < 1 || day > 31)
-            {
-                Console.WriteLine($"Error: Invalid date of birth in ID number {idNumber}.");
-                return default;
-            }
+
             DateTime format = new DateTime(year, month, day);
             return format;
         }
 
 
 
-        private bool IsValidIDNumber(string idNumber)
-        {
+        private bool IsValidIDNumber(string idNumber) {
             return Regex.IsMatch(idNumber, @"^\d{13}$");
         }
+
+
+        private bool IsRestOfIdValid(string idNumber){
+
+            // SA IDformat: {YYMMDD}{G}{SSS}{C}{A}{Z}
+
+            // check if its a number between 0 and 9, Gender the item at index 6
+
+            
+            // Check that the citizenship code is either 0 or 1.
+
+            // Check that the number A is either 8 or 9.
+
+            // Finally that number at the end that you calculate
+
+            int G = int.Parse(idNumber.Substring(6, 1));
+            int C = int.Parse(idNumber.Substring(10, 1));
+            int A = int.Parse(idNumber.Substring(11, 1));
+                            
+            return true;      
+            }
+        
+
+
 
 
 
