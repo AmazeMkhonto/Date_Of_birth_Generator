@@ -1,6 +1,7 @@
 ﻿﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace IDNumbers
 {
@@ -64,12 +65,15 @@ namespace IDNumbers
 
                 foreach (string idNumber in idNumbers)
                 {
-                    if (idNumber.Length != 13)
-                    //TODO: Check that id does not have letters if its 13 character
-                    // or contain any spaces, actually check if it only has digits
-                    // should we have duplicate id numbers
+
+                    string pattern = @"^\d{13}$";
+
+                    Regex regex = new Regex(pattern);
+
+                    if (!regex.IsMatch(idNumber))
+                
                     {
-                        Console.WriteLine($"Error: ID number {idNumber} is not 13 digits.");
+                        Console.WriteLine($"Invalid ID number : {idNumber}");
                         continue;
                     }
 
