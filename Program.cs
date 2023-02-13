@@ -65,22 +65,67 @@ namespace IDNumbers
         }
 
 
+        //TODO: CHECK that the first 6 are in the correct format
+
         private bool IsRestOfIdValid(string idNumber){
 
             // SA IDformat: {YYMMDD}{G}{SSS}{C}{A}{Z}
-
-            // check if its a number between 0 and 9, Gender the item at index 6
-
             
-            // Check that the citizenship code is either 0 or 1.
+             string strRegex = @"^[0-1]+$";
+             Regex re = new Regex(strRegex);
 
-            // Check that the number A is either 8 or 9.
+             string pattern = @"^[8-9]+$";
+             Regex p = new Regex(pattern);
+             
 
-            // Finally that number at the end that you calculate
+    
+            string C = idNumber.Substring(10, 1);
+            string A = idNumber.Substring(11, 1);
+            int Z = int.Parse(idNumber.Substring(12, 1)); //controlDigit
 
-            int G = int.Parse(idNumber.Substring(6, 1));
-            int C = int.Parse(idNumber.Substring(10, 1));
-            int A = int.Parse(idNumber.Substring(11, 1));
+
+            int oddsSum = 0;
+            int evensDoubledSum = 0;
+            int position = 0;
+            
+            foreach (char digitChar in idNumber){
+
+                int digit = int.Parse(digitChar.ToString());
+
+                if (position % 2 == 0) {
+                    oddsSum += digit;
+                } else {
+                    evensDoubledSum += digit * 2;
+                    if (digit >= 5)
+                    {
+                        evensDoubledSum -= 9;
+                    }
+                }
+                
+                position++;
+                if (position == 12)
+                {
+                    break;
+                }
+                 }
+                int totalSum = oddsSum + evensDoubledSum;
+                int controlDigitExpected = (10 - (totalSum % 10)) % 10;
+   
+
+            // Console.WriteLine("The actual last number: "+Z);
+            // Console.WriteLine("Expected last number: "+controlDigitExpected);
+
+            if(!re.IsMatch(C)){
+                return false;
+            }
+
+            if(!p.IsMatch(A)){
+                return false;
+            }
+
+            if(Z!=controlDigitExpected){
+                return false;
+            }
                             
             return true;      
             }
@@ -102,9 +147,17 @@ namespace IDNumbers
                     if (!IsValidIDNumber(idNumber))
                 
                     {
+                        
                         Console.WriteLine($"Invalid ID number : {idNumber}");
                         continue;
                     }
+
+                    if(!IsRestOfIdValid(idNumber)){
+                        Console.WriteLine($"Invalid ID number (Incorrect C, A or Z) : {idNumber}");
+                        continue;
+                    }
+
+                    IsRestOfIdValid(idNumber);
 
                     DateTime dateOfBirth = BirthDateFormat(idNumber);
                     datesOfBirth.Add(dateOfBirth);
