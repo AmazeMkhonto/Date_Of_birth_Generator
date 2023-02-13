@@ -18,8 +18,9 @@ namespace IDNumbers
 
             int bornBefore2010 = 0;
             int bornAfter2010 = 0;
+           
 
-            List<DateTime> datesOfBirth = dates.BirthDate(filePath);
+            DateTime[] datesOfBirth = dates.BirthDate(filePath);
 
             foreach (DateTime dateOfBirth in datesOfBirth) {
                 Console.WriteLine(dateOfBirth.ToString("dd-MM-yyyy"));
@@ -51,14 +52,25 @@ namespace IDNumbers
             } else {
                 year += 1900;
             }
+            if (month < 1 || month > 12 || day < 1 || day > 31)
+            {
+                Console.WriteLine($"Error: Invalid date of birth in ID number {idNumber}.");
+                return default;
+            }
             DateTime format = new DateTime(year, month, day);
             return format;
         }
 
 
 
+        private bool IsValidIDNumber(string idNumber)
+        {
+            return Regex.IsMatch(idNumber, @"^\d{13}$");
+        }
 
-        public List<DateTime> BirthDate(string filePath) {
+
+
+        public DateTime[] BirthDate(string filePath) {
 
             List<DateTime> datesOfBirth = new List<DateTime>();
             try
@@ -67,12 +79,7 @@ namespace IDNumbers
 
                 foreach (string idNumber in idNumbers)
                 {
-
-                    string pattern = @"^\d{13}$";
-
-                    Regex regex = new Regex(pattern);
-
-                    if (!regex.IsMatch(idNumber))
+                    if (!IsValidIDNumber(idNumber))
                 
                     {
                         Console.WriteLine($"Invalid ID number : {idNumber}");
@@ -89,7 +96,7 @@ namespace IDNumbers
                 Console.WriteLine(ex.Message);
             }
 
-            return datesOfBirth;
+            return datesOfBirth.ToArray();
         }
 
 
