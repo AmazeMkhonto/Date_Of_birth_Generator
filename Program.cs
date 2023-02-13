@@ -11,13 +11,15 @@ namespace IDNumbers
         static void Main(string[] args) {
 
             FileWriter count = new FileWriter();
+            FileReader dates = new FileReader();
+
             
             string filePath = @"idNumbers.txt";
 
             int bornBefore2010 = 0;
             int bornAfter2010 = 0;
 
-            List<DateTime> datesOfBirth = BirthDate(filePath);
+            List<DateTime> datesOfBirth = dates.BirthDate(filePath);
 
             foreach (DateTime dateOfBirth in datesOfBirth) {
                 Console.WriteLine(dateOfBirth.ToString("dd-MM-yyyy"));
@@ -30,11 +32,15 @@ namespace IDNumbers
             }
             count.ageCount(bornBefore2010, bornAfter2010);
             
-        }
+        } 
+        
+    }
 
 
 
-        static DateTime BirthDateFormat(string idNumber)
+
+    class FileReader{
+        public DateTime BirthDateFormat(string idNumber)
         {
             int year = int.Parse(idNumber.Substring(0, 2));
             int month = int.Parse(idNumber.Substring(2, 2));
@@ -52,7 +58,7 @@ namespace IDNumbers
 
 
 
-        static List<DateTime> BirthDate(string filePath) {
+        public List<DateTime> BirthDate(string filePath) {
 
             List<DateTime> datesOfBirth = new List<DateTime>();
             try
@@ -87,16 +93,9 @@ namespace IDNumbers
         }
 
 
-
-
-
-        
     }
 
 
-    class FileReader{
-
-    }
 
 
     class FileWriter{
@@ -111,7 +110,5 @@ namespace IDNumbers
 
 
     }
-
-
 
 }
